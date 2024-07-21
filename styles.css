@@ -1,6 +1,45 @@
-/* styles.css */
+:root {
+    --primary-color: #2E3440;
+    --secondary-color: #88C0D0;
+    --accent-color: #BF616A;
+    --text-color: #ECEFF4;
+    --background-color: #2E3440;
+    --header-footer-background: #3B4252;
+    --post-background: #3B4252; /* Default post background for dark theme */
+    --aside-background: #3B4252; /* Default aside background for dark theme */
+}
 
-/* Basic reset */
+body.light-theme {
+    --primary-color: #D8DEE9;
+    --secondary-color: #81A1C1;
+    --accent-color: #D08770;
+    --text-color: #2E3440; /* Darker text color for better contrast */
+    --background-color: #ECEFF4;
+    --header-footer-background: #81A1C1;
+    --post-background: #FFFFFF; /* Light theme post background */
+    --aside-background: #FFFFFF; /* Light theme aside background */
+}
+
+body.dark-theme {
+    --primary-color: #2E3440;
+    --secondary-color: #88C0D0;
+    --accent-color: #BF616A;
+    --text-color: #ECEFF4;
+    --background-color: #2E3440;
+    --header-footer-background: #3B4252;
+    --post-background: #3B4252; /* Dark theme post background */
+    --aside-background: #3B4252; /* Dark theme aside background */
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.8;
+    padding: 0 1rem;
+}
+
+/* Reset styles */
 * {
     margin: 0;
     padding: 0;
@@ -12,19 +51,10 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Body styling */
-body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #333;
-    line-height: 1.8;
-    background-color: #f4f4f4;
-    padding: 0 1rem;
-}
-
 /* Header styling */
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--header-footer-background);
+    color: var(--text-color);
     padding: 1.5rem 0;
     text-align: center;
     position: sticky;
@@ -51,7 +81,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: var(--text-color);
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
@@ -60,12 +90,11 @@ nav ul li a {
 nav ul li a:hover,
 nav ul li a:focus,
 nav ul li a:active {
-    color: #ff6347;
-    /* Tomato color */
+    color: var(--accent-color);
 }
 
 nav ul li a.current {
-    border-bottom: 2px solid #ff6347;
+    border-bottom: 2px solid var(--accent-color);
 }
 
 /* Main content and sidebar styling */
@@ -81,7 +110,7 @@ main {
 }
 
 .post {
-    background: #fff;
+    background: var(--post-background);
     margin-bottom: 2rem;
     padding: 1.5rem;
     border-radius: 10px;
@@ -97,13 +126,13 @@ main {
 .post h2 {
     margin-bottom: 1rem;
     font-size: 2rem;
-    color: #333;
+    color: var(--text-color);
 }
 
 .post p,
 .post ul {
     font-size: 1rem;
-    color: #666;
+    color: var(--text-color);
     margin-bottom: 1rem;
 }
 
@@ -119,7 +148,7 @@ main {
 /* Sidebar styling */
 .sidebar {
     flex: 1;
-    background: #fff;
+    background: var(--aside-background);
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -129,13 +158,13 @@ main {
 .sidebar h2 {
     margin-bottom: 1rem;
     font-size: 1.5rem;
-    color: #333;
+    color: var(--text-color);
 }
 
 .sidebar p,
 .sidebar ul {
     font-size: 1rem;
-    color: #666;
+    color: var(--text-color);
     margin-bottom: 1rem;
 }
 
@@ -150,20 +179,20 @@ main {
 
 .sidebar ul li a {
     text-decoration: none;
-    color: #ff6347;
+    color: var(--accent-color);
     transition: color 0.3s ease;
 }
 
 .sidebar ul li a:hover,
 .sidebar ul li a:focus,
 .sidebar ul li a:active {
-    color: #333;
+    color: var(--text-color);
 }
 
 /* Footer styling */
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--header-footer-background);
+    color: var(--text-color);
     text-align: center;
     padding: 1.5rem 0;
     margin-top: 2rem;
@@ -179,7 +208,7 @@ footer {
     z-index: 99;
     border: none;
     outline: none;
-    background-color: #333;
+    background-color: var(--header-footer-background);
     color: white;
     cursor: pointer;
     padding: 10px 15px;
