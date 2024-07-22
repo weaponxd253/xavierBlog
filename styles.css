@@ -220,6 +220,38 @@ footer {
     background-color: #555;
 }
 
+/* Theme Toggle Button */
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--header-footer-background);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    z-index: 1001; /* Ensure it's above other elements */
+}
+
+#theme-toggle i {
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle:hover,
+#theme-toggle:focus {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+
+#theme-toggle:active i {
+    transform: rotate(180deg);
+}
+
 /* Add the necessary styles */
 .intro-text, .content-text, .content-list li, h2, h3, h4, img, #about, footer {
     visibility: hidden; /* Start with hidden elements */

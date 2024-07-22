@@ -120,19 +120,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Theme Toggle Button
     const themeToggleButton = document.getElementById('theme-toggle');
+    const themeToggleIcon = themeToggleButton.querySelector('i');
+    const themeToggleText = themeToggleButton.querySelector('span');
     const currentTheme = localStorage.getItem('theme') || 'light-theme';
 
     document.body.classList.add(currentTheme);
+
+    // Set initial button icon and label
+    if (currentTheme === 'light-theme') {
+        themeToggleIcon.classList.remove('fa-moon');
+        themeToggleIcon.classList.add('fa-sun');
+        themeToggleText.textContent = 'Switch to Dark Theme';
+        themeToggleButton.setAttribute('aria-label', 'Switch to dark theme');
+    } else {
+        themeToggleIcon.classList.remove('fa-sun');
+        themeToggleIcon.classList.add('fa-moon');
+        themeToggleText.textContent = 'Switch to Light Theme';
+        themeToggleButton.setAttribute('aria-label', 'Switch to light theme');
+    }
 
     themeToggleButton.addEventListener('click', () => {
         if (document.body.classList.contains('light-theme')) {
             document.body.classList.remove('light-theme');
             document.body.classList.add('dark-theme');
             localStorage.setItem('theme', 'dark-theme');
+            themeToggleIcon.classList.remove('fa-sun');
+            themeToggleIcon.classList.add('fa-moon');
+            themeToggleText.textContent = 'Switch to Light Theme';
+            themeToggleButton.setAttribute('aria-label', 'Switch to light theme');
         } else {
             document.body.classList.remove('dark-theme');
             document.body.classList.add('light-theme');
             localStorage.setItem('theme', 'light-theme');
+            themeToggleIcon.classList.remove('fa-moon');
+            themeToggleIcon.classList.add('fa-sun');
+            themeToggleText.textContent = 'Switch to Dark Theme';
+            themeToggleButton.setAttribute('aria-label', 'Switch to dark theme');
         }
     });
 
